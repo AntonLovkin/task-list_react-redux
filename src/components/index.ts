@@ -5,6 +5,7 @@ import ArchivedNotes from "./ArchivedNotes";
 import Summary from "./Summary";
 import Form from "./Form";
 import NotesHeader from "./NotesHeader";
+import SummaryHeader from "./SummaryHeader";
 
 export {
     NotesList,
@@ -13,5 +14,6 @@ export {
     Summary,
     Form,
     Note,
-    NotesHeader
+    NotesHeader,
+    SummaryHeader
 };

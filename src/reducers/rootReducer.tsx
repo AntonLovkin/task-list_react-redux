@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
+import { NoteI, ActionTypes } from "../types";
 
-function notesReducer(state = [], action) {
-  console.log(state, action)
+function notesReducer(state: NoteI[] = [], action: ActionTypes): NoteI[] {
+  // console.log(state, action)
   switch (action.type) {
     case "ADD_NOTE":
       return [...state, action.payload];
@@ -16,8 +17,8 @@ function notesReducer(state = [], action) {
   }
 }
 
-function showFormReducer(state = false, action) {
-  console.log(state, action)
+function showFormReducer(state: boolean = false, action: ActionTypes): boolean {
+  // console.log(state, action)
   switch (action.type) {
     case "TOGGLE_FORM":
       return !state;
@@ -30,33 +31,3 @@ export default combineReducers({
   notes: notesReducer,
   showForm: showFormReducer,
 });
-
-// // reducer.js
-// import { ADD_TODO, TOGGLE_TODO } from './actionTypes'; // Make sure to import your action type constants.
-
-// const initialState = {
-//   todos: [],
-// };
-
-// const reducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case ADD_TODO:
-//       return {
-//         ...state,
-//         todos: [...state.todos, action.payload],
-//       };
-//     case TOGGLE_TODO:
-//       const { id } = action.payload;
-//       return {
-//         ...state,
-//         todos: state.todos.map((todo) =>
-//           todo.id === id ? { ...todo, completed: !todo.completed } : todo
-//         ),
-//       };
-//     // Other cases for handling different actions...
-//     default:
-//       return state;
-//   }
-// };
-
-// export default reducer;
