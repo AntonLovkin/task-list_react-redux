@@ -109,7 +109,7 @@ p {
 }
 
 form {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;
@@ -165,7 +165,7 @@ select:focus {
 button {
   min-width: 150px;
   background-color: #4CAF50;
-  color: white;
+  /* color: white; */
   border: none;
   padding: 12px 12px;
   text-align: center;
