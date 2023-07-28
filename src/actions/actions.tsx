@@ -26,6 +26,45 @@ export function addNote(note:NoteProps) {
   };
 }
 
+export function editNote(note:NoteProps, id: string) {
+  const { content, category, name } = note;
+
+  const dates = getDatesFromNote(content);
+
+  return {
+    type: "EDIT_NOTE",
+    payload: {
+      id,
+      editedAt: getCurrentDateTime(),
+      isArchived: false,
+      content,
+      category,
+      name,
+      dates,
+    }
+  };
+}
+
+export function deleteNote(id:string) {
+  return {
+    type: "DELETE_NOTE",
+    payload: id,
+  };
+}
+
+export function archiveNote(id:string) {
+  return {
+    type: "ARCHIVE_NOTE",
+    payload: id,
+  };
+}
+
+export function toggleShowForm() {
+  return {
+    type: "TOGGLE_FORM",
+  };
+}
+
 // actions.js
 // import { ADD_TODO } from './actionTypes'; // Make sure to define ADD_TODO as a string constant.
 

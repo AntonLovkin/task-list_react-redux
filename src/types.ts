@@ -10,4 +10,5 @@ export interface NoteI {
 
 export interface InitialState {
   notes: NoteI[];
+  showForm: boolean;
 }
