@@ -1,4 +1,12 @@
+import { connect } from 'react-redux';
 import { Notes, ArchivedNotes } from "."
+import { InitialState } from '../types';
+
+const mapStateToProps = (state: InitialState) => {
+    return {
+        notes: state.notes
+    }
+};
 
 function NotesList() {
   return (
@@ -9,4 +17,4 @@ function NotesList() {
   )
 }
 
-export default NotesList
+export default connect(mapStateToProps)(NotesList)

@@ -1,4 +1,4 @@
-import { NoteI } from '../store';
+import { NoteI } from "../types";
 
 interface NoteProps {
   note: NoteI;
