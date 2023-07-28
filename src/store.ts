@@ -51,7 +51,8 @@ const initialState: InitialState = {
             dates: '3/5/2023, 5/5/2023',
             isArchived: false,
         },
-    ]
+    ],
+    showForm: false,
 };
 
 const store = createStore(rootReducer, initialState);
