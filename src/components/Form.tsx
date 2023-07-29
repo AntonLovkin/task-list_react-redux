@@ -9,7 +9,7 @@ type FormProps = {
 
 function Form({ note }: FormProps) {
   // console.log(note)
-  const [formData, setFormData] = useState({ name: 'AddForm', content: 'AddForm', category: 'Task' });
+  const [formData, setFormData] = useState({ name: '', content: '', category: 'Task' });
 
   useEffect(() => {
     if (note) {
