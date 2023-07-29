@@ -1,15 +1,18 @@
 import { v4 as uuidv4 } from 'uuid';
 import { getCurrentDateTime, getDatesFromNote } from '../utils';
-import { NoteI } from '../types';
+import { AddNoteI } from '../types';
+import { ACTION_TYPES } from '../utils';
 
-export function addNote(note:NoteI) {
+const {ADD_NOTE,EDIT_NOTE,DELETE_NOTE,ARCHIVE_NOTE,TYPE_FORM,CLOSE_FORM } = ACTION_TYPES
+
+export function addNote(note: AddNoteI) {
   const { content, category, name } = note;
 
   const id = uuidv4;
   const dates = getDatesFromNote(content);
 
   return {
-    type: "ADD_NOTE",
+    type: ADD_NOTE,
     payload: {
       id,
       createdAt: getCurrentDateTime(),
@@ -22,13 +25,13 @@ export function addNote(note:NoteI) {
   };
 }
 
-export function editNote(note:NoteI, id: string) {
+export function editNote(note: AddNoteI, id: string | undefined) {
   const { content, category, name } = note;
 
   const dates = getDatesFromNote(content);
 
   return {
-    type: "EDIT_NOTE",
+    type: EDIT_NOTE,
     payload: {
       id,
       editedAt: getCurrentDateTime(),
@@ -43,20 +46,34 @@ export function editNote(note:NoteI, id: string) {
 
 export function deleteNote(id:string) {
   return {
-    type: "DELETE_NOTE",
+    type: DELETE_NOTE,
     payload: id,
   };
 }
 
 export function archiveNote(id:string) {
   return {
-    type: "ARCHIVE_NOTE",
+    type: ARCHIVE_NOTE,
     payload: id,
   };
 }
 
-export function toggleShowForm() {
+export function showFormByType(type:string) {
   return {
-    type: "TOGGLE_FORM",
+    type: TYPE_FORM,
+    payload: {
+        type: `${type}`,
+        showForm: true,
+    }
+  };
+}
+
+export function closeForm() {
+  return {
+    type: CLOSE_FORM,
+    payload: {
+        type: '',
+        showForm: false,
+    }
   };
 }

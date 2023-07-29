@@ -1,8 +1,7 @@
 import { combineReducers } from "redux";
-import { NoteI, ActionTypes } from "../types";
+import { NoteI, FormI, ActionTypes } from "../types";
 
 function notesReducer(state: NoteI[] = [], action: ActionTypes): NoteI[] {
-  // console.log(state, action)
   switch (action.type) {
     case "ADD_NOTE":
       return [...state, action.payload];
@@ -15,19 +14,19 @@ function notesReducer(state: NoteI[] = [], action: ActionTypes): NoteI[] {
     default:
       return state;
   }
-}
+};
 
-function showFormReducer(state: boolean = false, action: ActionTypes): boolean {
-  // console.log(state, action)
+function formReducer(state: FormI = {type: "", showForm: false}, action: ActionTypes): FormI {
   switch (action.type) {
-    case "TOGGLE_FORM":
-      return !state;
+    case "TYPE_FORM":
+    case "CLOSE_FORM":
+      return { ...action.payload };
     default:
       return state;
   }
-}
+};
 
 export default combineReducers({
   notes: notesReducer,
-  showForm: showFormReducer,
+  form: formReducer,
 });
