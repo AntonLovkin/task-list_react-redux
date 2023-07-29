@@ -28,7 +28,7 @@ function Note({note, editBtnClick, isArchived}: NoteProps) {
     };
     
     return (
-        <li id={id}>
+        <li>
             <span className="name">{name}</span>
             <span className="created">{createdAt}</span>
             <span className="category">{category}</span>

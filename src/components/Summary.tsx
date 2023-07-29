@@ -15,7 +15,7 @@ function Summary() {
         <ul>
           {summaryList.map((note: summaryNoteType) => {
             const { category, active, archived } = note;
-            return <li id={category} className="note-summary">
+            return <li key={category} className="note-summary">
               <span className="category">{category}</span>
               <span className="active">{active}</span>
               <span className="archived">{archived}</span>

@@ -23,23 +23,24 @@ function Notes() {
         setNoteData(note);
     };
 
-    const handleClick = () => {
+    const addBtnClick = () => {
         dispatch(showFormByType(FORM_TYPES.ADD))
     };
-console.log(notes)
+// console.log(notes)
     return (<div>
         <NotesHeader />
         <ul>
             {activeNotes
                 && activeNotes.length > 0
                 && activeNotes.map(note => <Note
+                    key={note.id}
                     note={note}
                     editBtnClick={editBtnClick}
                     isArchived={false}
                 />)}
         </ul>
 
-        <button onClick={handleClick}>Add note</button>
+        <button onClick={addBtnClick}>Add note</button>
         {showForm
             && type === FORM_TYPES.ADD
             && <Form note={null} />}
@@ -53,6 +54,7 @@ console.log(notes)
                 <h2>Archived notes list</h2>
                 <ul>
                     {archivedNotes.map(note => <Note
+                        key={note.id}
                         note={note}
                         editBtnClick={editBtnClick}
                         isArchived={true}
