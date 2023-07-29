@@ -5,6 +5,7 @@ import Summary from "./Summary";
 import Form from "./Form";
 import NotesHeader from "./NotesHeader";
 import SummaryHeader from "./SummaryHeader";
+import Icon from "./Icon";
 
 export {
     Notes,
@@ -13,5 +14,6 @@ export {
     Form,
     Note,
     NotesHeader,
-    SummaryHeader
+    SummaryHeader,
+    Icon
 };
