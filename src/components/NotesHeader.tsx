@@ -1,5 +1,3 @@
-import React from 'react'
-
 function NotesHeader() {
   return (
     <div className="table-header">

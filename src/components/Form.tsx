@@ -1,47 +1,43 @@
 import { FormEventHandler, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addNote, editNote, toggleShowForm } from '../actions/actions';
+import { addNote, editNote, closeForm } from '../actions/actions';
+import { NoteI } from '../types';
 
-function Form({note}) {
-  const [name, setName] = useState('Books');
-  const [content, setContent] = useState("3/5/2023, I moved it from 5/5/2023");
-  const [category, setCategory] = useState('Task');
-  const [formData, setFormData] = useState({ name: '', content: '', category: 'Task' });
+type FormProps = {
+  note: NoteI | null;
+};
+
+function Form({ note }: FormProps) {
+  // console.log(note)
+  const [formData, setFormData] = useState({ name: 'AddForm', content: 'AddForm', category: 'Task' });
 
   useEffect(() => {
-    console.log(formData)
     if (note) {
-      // setName(note.name);
-      // setContent(note.content);
-      // setCategory(note.category);
       setFormData(note)
     }
   }, [note])
   
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: string; value: string; }; }) => {
     const { name, value } = e.target;
-    console.log(name, value)
+    // console.log(name, value)
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    console.log(formData)
+    // console.log(formData)
   };
 
   const handleFormSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     
     if (note) {
-      dispatch(editNote(formData));
-      dispatch(toggleShowForm());
+      dispatch(editNote(formData, note.id));
     } else {
       dispatch(addNote(formData))
-      // dispatch(addNote({ name, content, category }));
-      // dispatch(editNote({ name, content, category }, id));
-      dispatch(toggleShowForm());
     }
+    dispatch(closeForm())
   };
 
   return (
@@ -57,7 +53,7 @@ function Form({note}) {
         <option value="Idea">Idea</option>
       </select>
       <button type="submit">Save</button>
-      <button type="button" onClick={() => dispatch(toggleShowForm())}>Cancel</button>
+      <button type="button" onClick={() => dispatch(closeForm())}>Cancel</button>
     </form>
   )
 }
