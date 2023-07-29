@@ -52,7 +52,10 @@ const initialState: InitialState = {
             isArchived: false,
         },
     ],
-    showForm: false,
+    form: {
+        type: "",
+        showForm: false,
+    }
 };
 
 const store = createStore(rootReducer, initialState);
