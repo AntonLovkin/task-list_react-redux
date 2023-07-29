@@ -8,7 +8,7 @@ const {ADD_NOTE,EDIT_NOTE,DELETE_NOTE,ARCHIVE_NOTE,TYPE_FORM,CLOSE_FORM } = ACTI
 export function addNote(note: AddNoteI) {
   const { content, category, name } = note;
 
-  const id = uuidv4;
+  const id = uuidv4();
   const dates = getDatesFromNote(content);
 
   return {
