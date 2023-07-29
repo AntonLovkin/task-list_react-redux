@@ -14,7 +14,7 @@ function notesReducer(state: NoteI[] = [], action: ActionTypes): NoteI[] {
     default:
       return state;
   }
-};
+}
 
 function formReducer(state: FormI = {type: "", showForm: false}, action: ActionTypes): FormI {
   switch (action.type) {
@@ -24,7 +24,7 @@ function formReducer(state: FormI = {type: "", showForm: false}, action: ActionT
     default:
       return state;
   }
-};
+}
 
 export default combineReducers({
   notes: notesReducer,

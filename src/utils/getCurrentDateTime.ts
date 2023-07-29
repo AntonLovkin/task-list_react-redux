@@ -8,4 +8,4 @@ export default function getCurrentDateTime():string {
   const formattedDate = `${day}.${month}.${year}`;
 
   return `${formattedDate}`;
-};
+}

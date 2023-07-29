@@ -21,4 +21,4 @@ export function separateAndCountByCategory(data) {
     return acc;
   }, []);
    return categoryCounts;
-};
+}

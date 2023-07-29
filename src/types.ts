@@ -7,18 +7,18 @@ export interface NoteI {
   name: string;
   dates: string;
   isArchived: boolean;
-};
+}
 
 export interface AddNoteI {
   content: string;
   category: string;
   name: string;
-};
+}
 
 export interface FormI {
     type: string;
     showForm: boolean;
-};
+}
 
 export interface InitialState {
   notes: NoteI[];
