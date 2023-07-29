@@ -1,16 +1,28 @@
 export interface NoteI {
-    id: string,
-    createdAt: string,
-    content: string,
-    category: string,
-    name: string,
-    dates: string,
-    isArchived: boolean,
+  id: string;
+  createdAt: string;
+  editedAt?: string;
+  content: string;
+  category: string;
+  name: string;
+  dates: string;
+  isArchived: boolean;
+};
+
+export interface AddNoteI {
+  content: string;
+  category: string;
+  name: string;
+};
+
+export interface FormI {
+    type: string;
+    showForm: boolean;
 };
 
 export interface InitialState {
   notes: NoteI[];
-  showForm: boolean;
+  form: FormI;
 }
 
 export type summaryNoteType = {
@@ -41,8 +53,14 @@ type ArchiveNoteAction = {
   payload: string;
 };
 
-type ToggleFormAction = {
-  type: "TOGGLE_FORM";
+type TypeFormAction = {
+  payload: FormI;
+  type: "TYPE_FORM";
+};
+
+type CloseFormAction = {
+  payload: FormI;
+  type: "CLOSE_FORM";
 };
 
 
@@ -51,4 +69,5 @@ export type ActionTypes =
   | EditNoteAction
   | DeleteNoteAction
   | ArchiveNoteAction
-  | ToggleFormAction;
+  | TypeFormAction
+  | CloseFormAction
