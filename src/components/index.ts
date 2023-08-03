@@ -1,4 +1,4 @@
-import Notes from "./Notes";
+import NotesList from "./NotesList";
 import Note from "./Note";
 import Summary from "./Summary";
 import Form from "./Form";
@@ -7,7 +7,7 @@ import SummaryHeader from "./SummaryHeader";
 import Icon from "./Icon";
 
 export {
-    Notes,
+    NotesList,
     Summary,
     Form,
     Note,

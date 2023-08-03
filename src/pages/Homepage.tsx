@@ -1,9 +1,9 @@
-import { Notes, Summary } from "../components";
+import { NotesList, Summary } from "../components";
 
 function Homepage() {
   return (
     <>
-      <Notes />
+      <NotesList />
       <Summary />
     </>
   )

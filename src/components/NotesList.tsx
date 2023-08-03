@@ -7,7 +7,7 @@ import { FORM_TYPES } from '../utils';
 
 type EditBtnClickFunction = (note: NoteI) => void;
 
-function Notes() {
+function NotesList() {
     const [noteData, setNoteData] = useState<NoteI | null>(null);
 
     const notes: NoteI[] = useSelector((state: InitialState) => state.notes)
@@ -64,4 +64,4 @@ function Notes() {
     </div>);
 }
 
-export default Notes
+export default NotesList
