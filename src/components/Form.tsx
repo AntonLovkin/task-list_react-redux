@@ -8,7 +8,6 @@ type FormProps = {
 };
 
 function Form({ note }: FormProps) {
-  // console.log(note)
   const [formData, setFormData] = useState({ name: '', content: '', category: 'Task' });
 
   useEffect(() => {
@@ -21,12 +20,10 @@ function Form({ note }: FormProps) {
 
   const handleChange = (e: { target: { name: string; value: string; }; }) => {
     const { name, value } = e.target;
-    // console.log(name, value)
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    // console.log(formData)
   };
 
   const handleFormSubmit: FormEventHandler<HTMLFormElement> = (e) => {

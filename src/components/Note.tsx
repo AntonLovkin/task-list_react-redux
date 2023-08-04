@@ -14,7 +14,6 @@ interface NoteProps {
 }
 
 function Note({note, editBtnClick, isArchived}: NoteProps) {
-    // console.log(note)
     const { id, createdAt, content, dates = '', category, name } = note;
 
     const dispatch = useDispatch();
