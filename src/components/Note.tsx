@@ -28,7 +28,7 @@ function Note({note, editBtnClick, isArchived}: NoteProps) {
     };
     
     return (
-        <li className="flex items-center gap-2.5 m-2.5 p-2.5 rounded-xl shadow-sm bg-gray-light text-gray-dark">
+        <li className="flex items-center gap-2.5 m-2.5 p-2.5 rounded-xl shadow-sm bg-gray-light text-gray-dark sm:leading-6">
             <span className="flex-initial basis-1/12">{name}</span>
             <span className="flex-initial basis-1/12">{createdAt}</span>
             <span className="hidden sm:inline-block flex-initial basis-1/12">{category}</span>
