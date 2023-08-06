@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Note, NotesHeader, Form } from '.';
+import { Note, NotesHeader, Form, Button } from '.';
 import { NoteI, InitialState } from '../types';
 import { showFormByType } from "../actions/actions";
 import { FORM_TYPES } from '../utils';
@@ -39,16 +39,9 @@ function NotesList() {
                     isArchived={false}
                 />)}
         </ul>
+        
+        <Button state={'BUTTON_ADD'} title={"Add note"} onBtnClick={addBtnClick} />
 
-        <button
-            className="transition ease-in-out delay-150 rounded-md min-w-min 
-              bg-white/75 hover:bg-green  
-              bg-gradient-to-r from-blue-light to-green
-              px-4 py-1 text-gray-600"
-            onClick={addBtnClick}
-        >
-            Add note
-        </button>
         {showForm
             && type === FORM_TYPES.ADD
             && <Form note={null} />}

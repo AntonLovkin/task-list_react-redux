@@ -9,27 +9,41 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // },
 } satisfies Meta<typeof Button>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type StoryButton = StoryObj<typeof meta>;
 
 // --------------------------
-export const Default: Story = {
+export const Default: StoryButton = {
   args: {
     title: 'Button',
-    // size: "medium",
-    // backgroundColor: 'white',
+    state: 'BUTTON_DEFAULT',
+    type: 'button',
   },
 };
 
-export const Add: Story = {
+export const Add: StoryButton = {
   args: {
+    ...Default.args,
     title: 'Add note',
-    // size: "large",
-    // backgroundColor: 'bg-gradient-to-r from-blue-light to-green hover:bg-green text-gray',
+    state: 'BUTTON_ADD',
+  },
+};
+
+export const Save: StoryButton = {
+  args: {
+    ...Default.args,
+    title: 'Save',
+    state: 'BUTTON_SAVE',
+    type: 'submit',
+  },
+};
+
+export const Cancel: StoryButton = {
+  args: {
+    ...Default.args,
+    title: 'Cancel',
+    state: 'BUTTON_CANCEL',
   },
 };
