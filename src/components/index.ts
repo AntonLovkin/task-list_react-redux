@@ -5,6 +5,7 @@ import Form from "./Form";
 import NotesHeader from "./NotesHeader";
 import SummaryHeader from "./SummaryHeader";
 import Icon from "./Icon";
+import Button from "./Button";
 
 export {
     NotesList,
@@ -13,5 +14,6 @@ export {
     Note,
     NotesHeader,
     SummaryHeader,
-    Icon
+    Icon,
+    Button,
 };

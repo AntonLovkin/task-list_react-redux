@@ -2,6 +2,7 @@ import { FormEventHandler, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addNote, editNote, closeForm } from '../actions/actions';
 import { NoteI } from '../types';
+import { Button } from '.';
 
 type FormProps = {
   note: NoteI | null;
@@ -109,23 +110,10 @@ function Form({ note }: FormProps) {
             </div>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <button
-              className="transition ease-in-out delay-150 rounded-md w-20 
-              bg-white/75 hover:bg-green/75 hover:text-white px-2 py-1 
-              text-dark-gray ring-2 ring-inset ring-dark-gray"
-              type="submit"
-            >
-              Save
-            </button>
-            <button
-              className="transition ease-in-out delay-150 rounded-md w-20 
-              bg-white/75 hover:bg-orange hover:text-white px-2 py-1 
-              text-dark-gray ring-2 ring-inset ring-dark-gray"
-              type="button"
-              onClick={() => dispatch(closeForm())}
-            >
-              Cancel
-            </button>
+
+          <Button state={'BUTTON_SAVE'} title={"Save"} type="submit" />
+          <Button state={'BUTTON_CANCEL'} title={"Cancel"} onBtnClick={() => dispatch(closeForm())} />
+
           </div>
         </form>
       </div>
